@@ -41,6 +41,21 @@ const ViewMovie = () => {
               <p className="font-bold">Title: {movie.title}</p>
               <p>Actors: {Array.isArray(movie.actors) ? movie.actors.join(", ") : movie.actors}</p>
               <p>Release Year: {movie.releaseYear}</p>
+              <div className="mt-4">
+              
+              <button
+                className="bg-green-400 hover:bg-green-600 text-white px-4 py-2 rounded"
+                onClick={() => alert('Edit button clicked for ' + movie.title)}
+              >
+                Edit
+              </button>
+              <button
+                className="bg-red-400 hover:bg-red-600 text-white px-4 py-2 rounded ml-2"
+                onClick={() => alert('Delete button clicked for ' + movie.title)}
+              >
+                Delete
+              </button>
+            </div>
             </li>
           ))}
         </ul>
