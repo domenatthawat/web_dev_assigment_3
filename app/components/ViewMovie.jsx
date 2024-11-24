@@ -5,8 +5,13 @@ const ViewMovie = () => {
   const [movies, setMovies] = useState([]);
 
   const fetchMovies = () => {
-    fetch("http://localhost:3300/movies") 
-      .then((res) => res.json())
+    fetch("http://localhost:3000/api/posts")
+      .then((res) => {
+        if (!res.ok) {
+          console.log("There's an error while fetching movies.")
+        }
+        return res.json();
+      })
       .then((data) => setMovies(data))
       .catch((error) => console.error("Error fetching movies:", error));
   };

@@ -41,3 +41,14 @@ export const POST = async (req) => {
     );
   }
 };
+
+export const GET = async () => {
+
+  try {
+      const movies = await client.movie.findMany()
+      return NextResponse.json(movies)
+      
+  } catch (error) {
+      return NextResponse.json({status: 500}, {message: error.message})
+  }
+}
