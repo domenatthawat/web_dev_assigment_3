@@ -20,6 +20,16 @@ const ViewMovie = () => {
     fetchMovies();
   }, []);
 
+  const handleDeleteClick = (id) => {
+    fetch(`http://localhost:3000/api/posts/${id}`, {
+      method: "DELETE"
+    })
+      .then(() => {
+        fetchMovies();  
+      })
+      .catch((error) => console.error("Error deleting movie:", error));
+  };
+
   if (movies.length === 0) {
     return (
       <div>
@@ -48,7 +58,7 @@ const ViewMovie = () => {
               </button>
               <button
                 className="bg-red-400 hover:bg-red-600 text-white px-4 py-2 rounded ml-2"
-                onClick={() => alert('Delete button clicked for ' + movie.title)}
+                onClick={() => handleDeleteClick(movie.id)}
               >
                 Delete
               </button>
