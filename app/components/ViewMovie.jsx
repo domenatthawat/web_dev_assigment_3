@@ -38,18 +38,21 @@ const ViewMovie = () => {
       </div>
     );
 
-  } else {
-   return (
-    <div className="p-4">
-      <h2 className="text-xl font-semibold text-center">Movies List</h2>
-      <ul className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-4 mb-4">
-        {movies.map((movie) => (
-          <li key={movie.id} className="p-4 bg-sky-100 hover:bg-sky-200 rounded-lg shadow-inner">
-            <p className="font-bold">Title: {movie.title}</p>
-            <p>Actors: {Array.isArray(movie.actors) ? movie.actors.join(", ") : movie.actors}</p>
-            <p>Release Year: {movie.releaseYear}</p>
-            <div className="mt-4">
-              
+  } else 
+    return (
+      <div className="p-4">
+        <h2 className="text-xl font-semibold text-center">Movies List</h2>
+        <ul className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-4 mb-4">
+          {movies.map((movie) => (
+            <li
+              key={movie.id} 
+              className="p-4 bg-sky-100 hover:bg-sky-200 rounded-lg shadow-inner"
+            >
+              <p className="font-bold">Title: {movie.title}</p>
+              <p>Actors: {Array.isArray(movie.actors) ? movie.actors.join(", ") : movie.actors}</p>
+              <p>Release Year: {movie.releaseYear}</p>
+              <div className="mt-4">
+
               <button
                 className="bg-green-400 hover:bg-green-600 text-white px-4 py-2 rounded"
                 onClick={() => alert('Edit button clicked for ' + movie.title)}
@@ -58,16 +61,16 @@ const ViewMovie = () => {
               </button>
               <button
                 className="bg-red-400 hover:bg-red-600 text-white px-4 py-2 rounded ml-2"
-                onClick={() => handleDeleteClick(movie.id)}
+                onClick={() => handleDeleteClick(movie.id)
               >
                 Delete
               </button>
             </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
   }
 };
 
